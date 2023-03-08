@@ -15,7 +15,12 @@ module.exports = {
     ],
   },
   theme: {
-    extend: {},
+    extend: {
+      backgroundImage: {
+        'hero-pattern': "url('/src/assets/images/bg.png')",
+        'doctor-pattern': "url('/src/assets/images/appointment.png')",
+      }
+    },
   },
   plugins: [require("daisyui")],
 };
