@@ -18,7 +18,8 @@ module.exports = {
     extend: {
       backgroundImage: {
         'hero-pattern': "url('/src/assets/images/bg.png')",
-        'doctor-pattern': "url('/src/assets/images/appointment.png')",
+        'doctor': "url('/src/assets/images/appointment.png')",
+        'footer': "url('/src/assets/images/footer.png')",
       }
     },
   },
