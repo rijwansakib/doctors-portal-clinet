@@ -26,7 +26,7 @@ const ContactUs = () => {
                 className="input input-bordered"
               />
             </div>
-            <div className="form-control">
+            <div className="form-control border-solid border rounded-md  border-slate-300">
                 <textarea className="textarea" placeholder="Your Message"></textarea>        
             </div>
             <div className="form-control mt-6">

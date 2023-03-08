@@ -4,7 +4,7 @@ import PrimaryButton from "../../../Components/PrimaryButton";
 const Banner = () => {
   return (
 
-    <div className="hero-content flex-col lg:flex-row-reverse bg-hero-pattern">
+    <div className="hero-content flex-col lg:flex-row-reverse bg-hero bg-cover">
         <img src={chair} className="rounded-lg lg:w-1/2 shadow-2xl" alt='' />
         <div>
             <h1 className="text-5xl font-bold">Box Office News!</h1>
