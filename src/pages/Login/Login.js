@@ -1,46 +1,29 @@
 import React from "react";
 import { Link } from "react-router-dom";
-
+import { useForm } from "react-hook-form";
+import PrimaryButton from "../../Components/PrimaryButton";
 const Login = () => {
-  return (
-    <div className="hero">
-      <div className="w-96 lg:mt-20 hero-content flex-col lg:flex-row">
-        <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
-          <div className="card-body">
-          <h1 className="text-5xl font-bold text-center">Login!</h1>
-            <div className="form-control">
-              <label className="label">
-                <span className="label-text">Email</span>
-              </label>
-              <input
-                type="text"
-                placeholder="email"
-                className="input input-bordered"
-              />
-            </div>
-            <div className="form-control">
-              <label className="label">
-                <span className="label-text">Password</span>
-              </label>
-              <input
-                type="text"
-                placeholder="password"
-                className="input input-bordered"
-              />
-              <label className="label">
-                <Link href="#" className="label-text-alt link link-hover">
-                  Forgot password?
-                </Link>
-              </label>
-            </div>
-            <div className="form-control mt-6">
-              <button className="btn btn-primary">Login</button>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  );
-};
+    const { register, handleSubmit,formState: { errors } } = useForm();
+    const onSubmit = data => console.log(data);
+
+  
+    return (
+      /* "handleSubmit" will validate your inputs before invoking "onSubmit" */
+      <form onSubmit={handleSubmit(onSubmit)} className="grid gap-4 w-96 items-center mx-auto mt-16">
+        {/* register your input into the hook by invoking the "register" function */}
+        <input  className="input input-bordered" type={"email"} placeholder="Email" {...register("example",{required:true})} />
+        
+        {/* include validation with required or other standard HTML validation rules */}
+        <input  className="input input-bordered" type={"password"} placeholder="Email"  {...register("exampleRequired", { required: true })} />
+        {/* errors will return when field validation fails  */}
+        {errors.exampleRequired && <span>This field is required</span>}    
+        <PrimaryButton type="submit" >Login</PrimaryButton>
+        <p className="text-center">New to Doctors Portal?<span className="text-primary"><Link> Create new Account </Link></span></p>
+        <p className="text-center">....................OR.....................</p>
+        <PrimaryButton type="submit" >CONTINUE WITH GOOGLE</PrimaryButton>
+        
+      </form>
+    );
+  }
 
 export default Login;
