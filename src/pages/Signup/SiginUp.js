@@ -1,22 +1,40 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { useForm } from "react-hook-form";
-const Login = () => {
+
+const SiginUp = () => {
   const {
     register,
     handleSubmit,
     formState: { errors },
   } = useForm();
-  const onSubmit = (data) => console.log(data);
-
+  const onSubmit = (data) => {
+    console.log(data);
+  }
   return (
     <div className="mt-16">
-      <h1 className="text-xl text-center">LOGIN</h1>
+      <h1 className="text-xl text-center">SIGNUP</h1>
       <form
         onSubmit={handleSubmit(onSubmit)}
         className="grid gap-4 w-96 items-center mx-auto mt-16"
       >
+
+
         {/* register your input into the hook by invoking the "register" function */}
+        <label className="lavel"><span className="lavel-text">Name</span></label>
+        <input
+          className="input input-bordered"
+          type={"name"}
+          placeholder="Name"
+          {...register("name", { required: "Name is required" })}
+        />
+        {errors.name && (
+          <p className="text-red-600">{errors.name?.message}</p>
+        )}
+
+
+        {/* register your input into the hook by invoking the "register" function */}
+        <label className="lavel"><span className="lavel-text">Email</span></label>
         <input
           className="input input-bordered"
           type={"email"}
@@ -27,7 +45,10 @@ const Login = () => {
           <p className="text-red-600">{errors.email?.message}</p>
         )}
 
+
+
         {/* include validation with required or other standard HTML validation rules */}
+        <label className="lavel"><span className="lavel-text">Password</span></label>
         <input
           className="input input-bordered"
           type={"password"}
@@ -44,11 +65,14 @@ const Login = () => {
           <p className="text-red-600">{errors.password?.message}</p>
         )}
 
-        <input className="btn btn-accrnt" type="submit" value="Login" />
+
+
+
+        <input className="btn btn-accrnt" type="submit" value="SignUp" />
         <p className="text-center">
-          New to Doctors Portal?
+          Alradey have an account
           <span className="text-primary">
-            <Link to="/signup"> Create new Account </Link>
+            <Link to="/login"> place login </Link>
           </span>
         </p>
         <div className="divider">OR</div>
@@ -60,4 +84,4 @@ const Login = () => {
   );
 };
 
-export default Login;
+export default SiginUp;
